@@ -1,0 +1,11 @@
+{
+    "TotalPackets": 10,
+  
+    "RecordsInPacket": 5,
+
+    "TimeInterval": 2,
+
+    "gRPCServerAddr": "localhost",
+  
+    "gRPCServerPort": 50051
+  }

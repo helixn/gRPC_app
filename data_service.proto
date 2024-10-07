@@ -1,0 +1,34 @@
+// Указываем, что мы используем синтаксис proto3
+syntax = "proto3";
+
+// Определяем пакет для нашего сервиса
+package server;
+
+// Определяем сервис DataService
+service DataService {
+  // Определяем метод SendData, который принимает DataPacket и возвращает Response
+  rpc SendData (DataPacket) returns (Response) {}
+}
+
+// Определяем структуру сообщения DataPacket
+message DataPacket {
+  int64 packet_timestamp = 1;  // Временная метка пакета (в миллисекундах)
+  int32 packet_seq_num = 2;    // Порядковый номер пакета
+  int32 n_records = 3;         // Количество записей в пакете
+  repeated Data packet_data = 4;  // Массив записей типа Data
+}
+
+// Определяем структуру сообщения Data
+message Data {
+  double decimal1 = 1;  // Первое число с плавающей точкой
+  double decimal2 = 2;  // Второе число с плавающей точкой
+  double decimal3 = 3;  // Третье число с плавающей точкой
+  double decimal4 = 4;  // Четвертое число с плавающей точкой
+  int64 timestamp = 5;  // Временная метка записи (в миллисекундах)
+}
+
+// Определяем структуру сообщения Response
+message Response {
+  bool success = 1;    // Флаг успешности операции
+  string message = 2;  // Сообщение с результатом операции
+}
