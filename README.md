@@ -35,5 +35,6 @@ exit
 exit
 
 Для остановки и удаления контейнера выполните:
+
 docker stop grpc_server
 docker rm grpc_server
