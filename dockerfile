@@ -31,6 +31,7 @@ COPY . .
 # Запускаем PostgreSQL, создаем базу данных 'grpc_db'(postgres), затем останавливаем сервис.
 # Это нужно для инициализации базы данных при сборке образа.
 RUN service postgresql start && \
+    su - postgres -c "psql -c \"ALTER USER postgres PASSWORD 'postgres';\"" && \
     su - postgres -c "psql -c 'CREATE DATABASE grpc_db;'" && \
     service postgresql stop
 
@@ -41,3 +42,7 @@ EXPOSE 50051
 # 1. Запускаем сервис PostgreSQL
 # 2. Запускаем Python-скрипт server.py
 CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 server.py"]
+# 3. Запускаем Python-скрипт client.py (с небольшой задержкой, чтобы сервер успел запуститься)
+# CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 server.py & sleep 5 && . venv/bin/activate && python3 client.py"]
+
+
