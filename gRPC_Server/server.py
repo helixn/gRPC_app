@@ -1,12 +1,17 @@
 # Импортируем необходимые библиотеки
 import os
+import sys
+# Добавляем путь к родительской директории 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../Proto')))
+
 import json  # Для работы с JSON
 import grpc  # Для работы с gRPC
 from concurrent import futures  # Для создания пула потоков
 import time  # Для работы со временем
 import psycopg2  # Для работы с PostgreSQL
 from psycopg2 import sql  # Для безопасного формирования SQL-запросов
-import data_service_pb2  # Импортируем сгенерированные классы сообщений
+
+import data_service_pb2 # Импортируем сгенерированные классы сообщений
 import data_service_pb2_grpc  # Импортируем сгенерированные классы сервиса
 
 # Определяем класс DataServicer, который реализует методы нашего gRPC сервиса

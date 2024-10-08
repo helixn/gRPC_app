@@ -1,5 +1,9 @@
 # Импортируем необходимые библиотеки
 import os
+import sys
+# Добавляем путь к родительской директории 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../Proto')))
+
 import json  # Для работы с JSON
 import grpc  # Для работы с gRPC
 import time  # Для работы со временем и задержками
