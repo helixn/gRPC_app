@@ -41,8 +41,8 @@ EXPOSE 50051
 # Команда, выполняемая при запуске контейнера:
 # 1. Запускаем сервис PostgreSQL
 # 2. Запускаем Python-скрипт server.py
-CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 server.py"]
+CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 ./gRPC_Server/server.py"]
 # 3. Запускаем Python-скрипт client.py (с небольшой задержкой, чтобы сервер успел запуститься)
-# CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 server.py & sleep 5 && . venv/bin/activate && python3 client.py"]
+# CMD ["bash", "-c", "service postgresql start && . venv/bin/activate && python3 ./gRPC_Server/server.py & sleep 5 && . venv/bin/activate && python3 ./gRPC_Client/client.py"]
 
 

@@ -14,7 +14,7 @@ docker build -t grpc_app .
 docker run -d --name grpc_server -p 50051:50051 grpc_app
 
 # Запуск клиента внутри контейнера
-docker exec -it grpc_server bash -c "source /app/venv/bin/activate && python3 client.py"
+docker exec -it grpc_server bash -c "source /app/venv/bin/activate && python3 ./gRPC_Client/client.py"
 
 Наблюдайте за выводом клиента в терминале. Вы должны увидеть сообщения о отправке пакетов и ответы сервера.
 После завершения работы клиента, вы можете проверить содержимое базы данных, выполнив следующие команды:
